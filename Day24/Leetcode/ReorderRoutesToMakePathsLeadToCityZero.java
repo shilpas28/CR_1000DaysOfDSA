@@ -3,8 +3,8 @@ import java.util.List;
 
 //Leetcode
 //1466. Reorder Routes to Make All Paths Lead to the City Zero
-//Time complexity:
-//Space complexity:
+//Time complexity: O(N)
+//Space complexity: O(N)
 
 public class ReorderRoutesToMakePathsLeadToCityZero {
 
