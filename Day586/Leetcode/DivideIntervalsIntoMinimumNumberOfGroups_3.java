@@ -1,5 +1,5 @@
 //Leetcode
-//2406. Divide Intervals Into Minimum Number of Groups
+//2406. Divide Intervals Into Minimum Number of Groups - Method 3
 //Time complexity: O(N)
 //Space complexity: O(N)
 
