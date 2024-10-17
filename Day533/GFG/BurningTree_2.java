@@ -1,5 +1,5 @@
 //GFG
-//Burning Tree
+//Burning Tree - Method 2
 //Time complexity: O(number of nodes)
 //Space complexity: O(height of tree)
 
