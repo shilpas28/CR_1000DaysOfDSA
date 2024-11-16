@@ -1,4 +1,4 @@
-//Leetcode
+//Leetcode - Method 2
 //106. Construct Binary Tree from Inorder and Postorder Traversal
 //Time complexity: O(N)
 //Space complexity: O(N)
