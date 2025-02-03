@@ -1,4 +1,4 @@
-//GFG
+//GFG Method 1
 //Implement Pow - Brute Force (Not accepted by GFG)
 //Time complexity: O(N)
 //Space complexity: O(1) 

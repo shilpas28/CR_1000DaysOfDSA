@@ -1,4 +1,4 @@
-//GFG
+//GFG Method 2
 //Implement Pow - Binary Exponentiation
 //Time complexity: O(logN)
 //Space complexity: O(1)
