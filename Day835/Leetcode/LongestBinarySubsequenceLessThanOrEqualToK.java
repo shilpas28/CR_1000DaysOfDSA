@@ -1,0 +1,26 @@
+//Leetcode
+//2311. Longest Binary Subsequence Less Than or Equal to K - DP
+//Time complexity: O(N^2)
+//Space complexity: O(N) 
+
+public class LongestBinarySubsequenceLessThanOrEqualToK {
+
+    public static void main(String[] args) {
+        String s = "1001010";
+        int k = 5;
+        System.out.println(longestSubsequence(s, k));
+    }
+
+    public static int longestSubsequence(String s, int k) {
+        int dp[] = new int[s.length() + 1], j = 0;
+        for (char c : s.toCharArray()) {
+            if (dp[j] * 2 + c - '0' <= k) {
+                dp[j + 1] = dp[j] * 2 + c - '0';
+                j++;
+            }
+            for (int i = j; i > 0; --i)
+                dp[i] = Math.min(dp[i], dp[i - 1] * 2 + c - '0');
+        }
+        return j;
+    }
+}
