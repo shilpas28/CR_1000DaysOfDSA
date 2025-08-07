@@ -1,0 +1,57 @@
+//Leetcode
+//3363. Find the Maximum Number of Fruits Collected
+//Time complexity: O(N^2)
+//Space complexity: O(N) 
+
+public class FindTheMaximumNumberOfFruitsCollected {
+
+    public static void main(String[] args) {
+        int[][] fruits = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        System.out.println(maxCollectedFruits(fruits));
+    }
+
+    public static int maxCollectedFruits(int[][] fruits) {
+        int n = fruits.length;
+        int total = 0;
+        // Collect main diagonal fruits (top-left to bottom-right)
+        for (int i = 0; i < n; i++) {
+            total += fruits[i][i];
+        }
+
+        int[] rightPath = new int[3];
+        rightPath[0] = fruits[0][n - 1];
+
+        int[] bottomPath = new int[3];
+        bottomPath[0] = fruits[n - 1][0];
+
+        int window = 2;
+
+        for (int step = 1; step < n - 1; step++) {
+            int[] newRight = new int[window + 2];
+            int[] newBottom = new int[window + 2];
+
+            for (int dist = 0; dist < window; dist++) {
+                // Bounds check for array access
+                int left = (dist - 1 >= 0) ? rightPath[dist - 1] : 0;
+                int mid = rightPath[dist];
+                int right = (dist + 1 < rightPath.length) ? rightPath[dist + 1] : 0;
+                newRight[dist] = Math.max(left, Math.max(mid, right)) + fruits[step][n - 1 - dist];
+
+                left = (dist - 1 >= 0) ? bottomPath[dist - 1] : 0;
+                mid = bottomPath[dist];
+                right = (dist + 1 < bottomPath.length) ? bottomPath[dist + 1] : 0;
+                newBottom[dist] = Math.max(left, Math.max(mid, right)) + fruits[n - 1 - dist][step];
+            }
+
+            rightPath = newRight;
+            bottomPath = newBottom;
+
+            if (window - n + 4 + step <= 1) {
+                window += 1;
+            } else if (window - n + 3 + step > 1) {
+                window -= 1;
+            }
+        }
+        return total + rightPath[0] + bottomPath[0];
+    }
+}
